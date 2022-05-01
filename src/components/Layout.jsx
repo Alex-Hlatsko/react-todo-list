@@ -6,7 +6,7 @@ export const Layout = () => {
     <>
     <div className="structure">
       <nav>
-        <h1 className="logo">Freex</h1>
+        <NavLink to= "/" className="logo">Freex</NavLink>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/profile">Profile</NavLink>
         <NavLink to="/tasks">Tasks</NavLink>
