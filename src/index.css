@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --black: #1B1B23;
+  --grey: #27272F;
+  --light_grey: #807F8C;
+  --white: #ffffff;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,9 +16,53 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.structure{
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "navigation content";
+}
+.structure nav{
+  grid-area: navigation;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  background-color: var(--grey);
+  box-shadow: 8px 0 10px var(--black);
+}
+.structure nav a.logo{
+  color: var(--white);
+  font-size: 44px;
+  margin-bottom: 30px;
+}
+.structure nav a{
+  margin-top: 30px;
+  display: inline-block;
+  color: var(--light_grey);
+  transition: 0.3s;
+}
+.structure nav a.active{
+  color: var(--white);
+}
+.structure nav a:hover{
+  color: var(--white);
+}
+.structure .content{
+  grid-area: content;
+  display: flex;
+  justify-content: center;
+  font-size: 56px;
 }
