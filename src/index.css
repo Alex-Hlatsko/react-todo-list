@@ -25,16 +25,12 @@ code {
     monospace;
 }
 
-.structure{
-  width: 100%;
+nav{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "navigation content";
-}
-.structure nav{
-  grid-area: navigation;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -43,26 +39,57 @@ code {
   background-color: var(--grey);
   box-shadow: 8px 0 10px var(--black);
 }
-.structure nav a.logo{
+nav a.logo{
   color: var(--white);
   font-size: 44px;
   margin-bottom: 30px;
 }
-.structure nav a{
+nav a{
   margin-top: 30px;
   display: inline-block;
   color: var(--light_grey);
   transition: 0.3s;
 }
-.structure nav a.active{
+a.active{
   color: var(--white);
 }
-.structure nav a:hover{
+nav a:hover{
   color: var(--white);
 }
-.structure .content{
+.content{
+  padding-left: 270px;
   grid-area: content;
   display: flex;
-  justify-content: center;
   font-size: 56px;
+  flex-direction: column;
+}
+.task{
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  padding: 10px;
+  background-color: var(--grey);
+}
+.task h1{
+  font-size: 24px;
+}
+.task .task__ico{
+  margin-right: 15px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black);
+  border-radius: 5px;
+}
+.task .task__content p{
+  font-size: 12px;
+  display: flex;
+}
+.acitve{
+  opacity: 1;
+}
+.inactive{
+  opacity: 0;
 }

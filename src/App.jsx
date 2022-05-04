@@ -3,8 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
 import { Activetasks } from "./pages/Activetasks";
-import { Tasks } from "./pages/Tasks";
+import Tasks  from "./pages/Tasks";
 import { Notfound } from "./pages/Notfound";
+
 import { Layout } from './components/Layout';
 
 function App() {
