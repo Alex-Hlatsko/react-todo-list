@@ -6,7 +6,7 @@
         "last_name": "Fuente",
         "time": "5/7/2022",
         "email": "gfuente1@bizjournals.com",
-        "isStarted": true
+        "isStarted": false
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "last_name": "Edinborough",
         "time": "3/12/2022",
         "email": "jblakeley8@imgur.com",
-        "isStarted": true
+        "isStarted": false
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@
         "last_name": "Couth",
         "time": "6/16/2022",
         "email": "acouth4@jalbum.net",
-        "isStarted": true
+        "isStarted": false
     },
     {
         "id": 4,
@@ -33,7 +33,7 @@
         "last_name": "Stovine",
         "time": "4/18/2022",
         "email": "blonghornej@google.com.br",
-        "isStarted": true
+        "isStarted": false
     },
     {
         "id": 5,
@@ -42,6 +42,6 @@
         "last_name": "Crummy",
         "time": "12/25/2021",
         "email": "wmeconio@slate.com",
-        "isStarted": true
+        "isStarted": false
     }
 ]
