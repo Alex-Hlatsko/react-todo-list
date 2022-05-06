@@ -10,25 +10,22 @@ const Tasks = () => {
       .then(res => res.json())
       .then(data => setTasks(data))
     },[]);
-  console.log(tasks)
-
-
-  // const [tasklist, setTasklist] = useState(tasks);
   
-  const changeTasklist = (id) => {
+  const changeTasklist = id => {
     const copy = [...tasks]
     const current = copy.find(t => t.id === id)
     current.isStarted = !current.isStarted
     setTasks(copy)
   }
-  // console.log(tasklist)
-
+  const removeTasklist = id => {
+    setTasks([...tasks].filter(t => t.id !== id))
+  }
 
   return (
     <>
       {
         tasks.map(task => (
-          <TaskItem key={task.id} tasks={task} changeTasklist={changeTasklist}/>
+          <TaskItem key={task.id} tasks={task} changeTasklist={changeTasklist} removeTasklist={removeTasklist}/>
         ))
       }
     </>

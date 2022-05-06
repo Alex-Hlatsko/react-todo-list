@@ -63,7 +63,7 @@ nav a:hover{
   font-size: 56px;
   flex-direction: column;
 }
-.task{
+/* .task{
   display: flex;
   align-items: center;
   margin: 15px;
@@ -83,6 +83,11 @@ nav a:hover{
   background-color: var(--black);
   border-radius: 5px;
 }
+.task .task__content{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 .task .task__content p{
   font-size: 12px;
   display: flex;
@@ -91,5 +96,49 @@ nav a:hover{
   opacity: 1;
 }
 .inactive{
+  opacity: 0;
+} */
+
+.task{
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  width: 95%;
+  height: 100px;
+  justify-content: space-between;
+}
+.task .task__content{
+  display: flex;
+  align-items: center;
+}
+.task .task__remove:hover{
+  transition: 0.2s;
+  color: red;
+}
+.task__content .task__content__ico{
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.task__content__text{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.task__title{
+  font-size: 24px;
+}
+.task__sub_title{
+  font-size: 14px;
+}
+.task_acitve{
+  opacity: 1;
+}
+.task_inactive{
   opacity: 0;
 }
