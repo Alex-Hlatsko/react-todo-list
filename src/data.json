@@ -4,8 +4,8 @@
         "title": "Redesign our website",
         "first_name": "Gage",
         "last_name": "Fuente",
-        "time": "5/7/2022",
-        "email": "gfuente1@bizjournals.com",
+        "time":"5/7/2022",
+        "email":"gfuente1@bizjournals.com",
         "isStarted": false
     },
     {
@@ -13,8 +13,8 @@
         "title": "Squarespace update quote",
         "first_name": "Adamo",
         "last_name": "Edinborough",
-        "time": "3/12/2022",
-        "email": "jblakeley8@imgur.com",
+        "time":"3/12/2022",
+        "email":"jblakeley8@imgur.com",
         "isStarted": false
     },
     {
@@ -22,8 +22,8 @@
         "title": "Kajabi Web Designer for In-Product Design",
         "first_name": "Alexine",
         "last_name": "Couth",
-        "time": "6/16/2022",
-        "email": "acouth4@jalbum.net",
+        "time":"6/16/2022",
+        "email":"acouth4@jalbum.net",
         "isStarted": false
     },
     {
@@ -31,8 +31,8 @@
         "title": "Social Interaction Check In Mobile App",
         "first_name": "Enriqueta",
         "last_name": "Stovine",
-        "time": "4/18/2022",
-        "email": "blonghornej@google.com.br",
+        "time":"4/18/2022",
+        "email":"blonghornej@google.com.br",
         "isStarted": false
     },
     {
@@ -40,8 +40,8 @@
         "title": "Modify App User Interface and Debug Errors",
         "first_name": "Jamie",
         "last_name": "Crummy",
-        "time": "12/25/2021",
-        "email": "wmeconio@slate.com",
+        "time":"12/25/2021",
+        "email":"wmeconio@slate.com",
         "isStarted": false
     }
 ]
