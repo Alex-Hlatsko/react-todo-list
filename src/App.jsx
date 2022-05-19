@@ -4,7 +4,7 @@ import {HOME_ROUTE, PROFILE_ROUTE} from './utils/consts';
 import Layout from './components/Layout';
 
 function App() {
-  const user = false;
+  const user = true;
   return user ? 
     (
       <Routes>

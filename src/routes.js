@@ -9,25 +9,29 @@ import { ACTIVETASKS_ROUTE, HOME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, TASKS_ROUTE 
 export const publicRoutes = [
     {
         path: LOGIN_ROUTE,
-        Component: Login
+        Component: <Login></Login>
     },
     {
         path: HOME_ROUTE,
-        Component: Home
+        Component: <Home></Home>
     }
 ]
 //only registered users can move to this routes
 export const privateRoutes = [
     {
+        path: HOME_ROUTE,
+        Component: <Home></Home>
+    },
+    {
         path: PROFILE_ROUTE,
-        Component: Profile
+        Component: <Profile></Profile>
     },
     {
         path: TASKS_ROUTE,
-        Component: Tasks
+        Component: <Tasks></Tasks>
     },
     {
         path: ACTIVETASKS_ROUTE,
-        Component: Activetasks
+        Component: <Activetasks></Activetasks>
     }
 ]
