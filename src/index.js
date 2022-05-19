@@ -20,7 +20,7 @@ firebase.initializeApp(
   }
 );
 
-const Context = createContext(null) 
+export const Context = createContext(null) 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
