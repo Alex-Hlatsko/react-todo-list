@@ -4,7 +4,6 @@ import firebase from 'firebase/compat/app';
 
 const Login = () => {
   const {auth} = useContext(Context)
-
   const login = async() => {
     const provider = new firebase.auth.GoogleAuthProvider()
     const {user} = await auth.signInWithPopup(provider)
@@ -12,8 +11,8 @@ const Login = () => {
   }
   return (
     <>
-    <div>Loginnnnn</div>
-    <button onClick={login}>Join</button>
+    <div>Login</div>
+    <button className="btn__sign" onClick={login}>Join</button>
     </>
   )
 }
