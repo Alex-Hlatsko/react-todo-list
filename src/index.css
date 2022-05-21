@@ -34,7 +34,6 @@ nav{
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-size: 24px;
   background-color: var(--grey);
   box-shadow: 8px 0 10px var(--black);
@@ -43,12 +42,19 @@ nav a.logo{
   color: var(--white);
   font-size: 44px;
   margin-bottom: 30px;
+  text-align: center;
 }
-nav a{
+nav .nav__link{
+  display: flex;
+  align-items: center;
   margin-top: 30px;
-  display: inline-block;
+  margin-left: 30px;
   color: var(--light_grey);
   transition: 0.3s;
+}
+nav svg{
+  display: inline-block;
+  margin-right: 15px;
 }
 a.active{
   color: var(--white);
@@ -63,42 +69,6 @@ nav a:hover{
   font-size: 56px;
   flex-direction: column;
 }
-/* .task{
-  display: flex;
-  align-items: center;
-  margin: 15px;
-  padding: 10px;
-  background-color: var(--grey);
-}
-.task h1{
-  font-size: 24px;
-}
-.task .task__ico{
-  margin-right: 15px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--black);
-  border-radius: 5px;
-}
-.task .task__content{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.task .task__content p{
-  font-size: 12px;
-  display: flex;
-}
-.acitve{
-  opacity: 1;
-}
-.inactive{
-  opacity: 0;
-} */
-
 .task{
   margin: 15px;
   display: flex;
@@ -141,4 +111,12 @@ nav a:hover{
 }
 .task_inactive{
   opacity: 0;
+}
+button.btn__sign{
+  width: 150px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 24px;
+  background-color: var(--white);
+  color: var(--black);
 }

@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Activetasks = () => {
+const Activetasks = () => {
   return (
-    <div>Active tasks</div>
+    <div>Activetasks</div>
   )
 }
+
+export default Activetasks
