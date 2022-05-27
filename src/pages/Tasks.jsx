@@ -6,7 +6,7 @@ const Tasks = () => {
   const [tasks, setTasks] = useState([]);
   
   useEffect(() => {
-    fetch ('https://alex-hlatsko.github.io/freex/src/data.json')
+    fetch ('https://freex-e983a-default-rtdb.europe-west1.firebasedatabase.app/.json')
       .then(res => res.json())
       .then(data => setTasks(data))
     },[]);
