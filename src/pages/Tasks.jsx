@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import TaskItem  from '../components/TaskItem'
-import { getDatabase, ref, update } from "firebase/database";
+import { getDatabase, ref, remove, update } from "firebase/database";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -15,7 +15,7 @@ const Tasks = () => {
   const changeTasklist = id => {
     const db = getDatabase();
     const copy = [...tasks]
-    const current = copy.find(t => t.id === id)
+    const current = copy.find(t => t == null ? '' : t.id === id)
     current.isStarted = !current.isStarted
 
     // A post entry.
@@ -36,14 +36,18 @@ const Tasks = () => {
     return update(ref(db), updates);
   }
   const removeTasklist = id => {
-    setTasks([...tasks].filter(t => t.id !== id))
+    const db = getDatabase();
+    remove(ref(db, String(id)))
+    // const copy = [...tasks]
+    // setTasks(copy)
+    setTasks([...tasks].filter(t => t == null ? '' : t.id !== id))
   }
 
   return (
     <>
       {
         tasks.map(task => (
-          <TaskItem key={task.id} tasks={task} changeTasklist={changeTasklist} removeTasklist={removeTasklist} url={url}/>
+          task == null ? '' : <TaskItem key={task.id} tasks={task} changeTasklist={changeTasklist} removeTasklist={removeTasklist} url={url}/>
         ))
       }
     </>
