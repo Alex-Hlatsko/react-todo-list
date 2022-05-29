@@ -16,7 +16,8 @@ firebase.initializeApp(
     storageBucket: "freex-e983a.appspot.com",
     messagingSenderId: "561091024495",
     appId: "1:561091024495:web:fbe2759361dde714349f9a",
-    measurementId: "G-8595E9L5KR"
+    measurementId: "G-8595E9L5KR",
+    databaseURL: "https://freex-e983a-default-rtdb.europe-west1.firebasedatabase.app"
   }
 );
 

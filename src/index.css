@@ -109,7 +109,7 @@ nav a:hover{
 .task_acitve{
   opacity: 1;
 }
-.task_inactive{
+.task_unactive{
   opacity: 0;
 }
 button.btn__sign{
