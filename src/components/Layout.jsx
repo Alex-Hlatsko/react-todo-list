@@ -8,6 +8,7 @@ import {AiFillHome, AiFillProfile} from 'react-icons/ai'
 import {FaTasks} from 'react-icons/fa'
 import {RiTaskFill, RiAccountBoxLine} from 'react-icons/ri'
 import {ImExit} from 'react-icons/im'
+import {GoDiffAdded} from 'react-icons/go'
 
 const Layout = () => {
   const {auth} = useContext(Context)
@@ -22,6 +23,7 @@ const Layout = () => {
         <NavLink className="nav__link" to="/profile"><AiFillProfile></AiFillProfile>Profile</NavLink>
         <NavLink className="nav__link" to="/tasks"><FaTasks></FaTasks>Tasks</NavLink>
         <NavLink className="nav__link" to="/activetasks"><RiTaskFill></RiTaskFill>Active Tasks</NavLink>
+        <NavLink className="nav__link" to="/addtask"><GoDiffAdded></GoDiffAdded>Add task</NavLink>
         <NavLink className="nav__link" to="/signout"><ImExit></ImExit>Sign Out</NavLink>
         </>
         :

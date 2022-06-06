@@ -38,8 +38,6 @@ const Tasks = () => {
   const removeTasklist = id => {
     const db = getDatabase();
     remove(ref(db, String(id)))
-    // const copy = [...tasks]
-    // setTasks(copy)
     setTasks([...tasks].filter(t => t == null ? '' : t.id !== id))
   }
 
@@ -47,7 +45,7 @@ const Tasks = () => {
     <>
       {
         tasks.map(task => (
-          task == null ? '' : <TaskItem key={task.id} tasks={task} changeTasklist={changeTasklist} removeTasklist={removeTasklist} url={url}/>
+          task == null ? '' : <TaskItem key={tasks.id} tasks={task} changeTasklist={changeTasklist} removeTasklist={removeTasklist} url={url}/>
         ))
       }
     </>
