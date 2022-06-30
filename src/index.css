@@ -120,3 +120,26 @@ button.btn__sign{
   background-color: var(--white);
   color: var(--black);
 }
+.add__task__form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.add__task__form input{
+  padding: 5px 10px;
+  font-size: 18px;
+  margin-top: 15px;
+  width: 500px;
+  height: 40px;
+  color: var(--black);
+}
+.add__task__form button{
+  margin-top: 15px;
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+  background-color: var(--white);
+  color: var(--black);
+
+}
