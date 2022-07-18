@@ -4,7 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext } from 'react';
 import { Context } from '../index';
 
-import {AiFillHome, AiFillProfile} from 'react-icons/ai'
+import {AiFillHome} from 'react-icons/ai'
+import {BiUserPin} from 'react-icons/bi'
 import {FaTasks} from 'react-icons/fa'
 import {RiTaskFill, RiAccountBoxLine} from 'react-icons/ri'
 import {ImExit} from 'react-icons/im'
@@ -17,20 +18,22 @@ const Layout = () => {
     <>
     <nav>
       <NavLink className="logo" to= "/">Freex</NavLink>
-      <NavLink className="nav__link" to="/"><AiFillHome size={24}/>Home</NavLink>
-      {user ?
-        <>
-        <NavLink className="nav__link" to="/profile"><AiFillProfile></AiFillProfile>Profile</NavLink>
-        <NavLink className="nav__link" to="/tasks"><FaTasks></FaTasks>Tasks</NavLink>
-        <NavLink className="nav__link" to="/activetasks"><RiTaskFill></RiTaskFill>Active Tasks</NavLink>
-        <NavLink className="nav__link" to="/addtask"><GoDiffAdded></GoDiffAdded>Add task</NavLink>
-        <NavLink className="nav__link" to="/signout"><ImExit></ImExit>Sign Out</NavLink>
-        </>
-        :
-        <>
-        <NavLink className="nav__link" to="/login"><RiAccountBoxLine></RiAccountBoxLine>Login</NavLink>
-        </>
-      }
+      <div className="nav__items">
+        <NavLink className="nav__link" to="/"><AiFillHome size={24}/>Home</NavLink>
+        {user ?
+          <>
+          <NavLink className="nav__link" to="/profile"><BiUserPin size={24}></BiUserPin>Profile</NavLink>
+          <NavLink className="nav__link" to="/tasks"><FaTasks size={24}></FaTasks>Tasks</NavLink>
+          <NavLink className="nav__link" to="/activetasks"><RiTaskFill size={24}></RiTaskFill>Active Tasks</NavLink>
+          <NavLink className="nav__link" to="/addtask"><GoDiffAdded size={24}></GoDiffAdded>Add task</NavLink>
+          <NavLink className="nav__link" to="/signout"><ImExit size={24}></ImExit>Sign Out</NavLink>
+          </>
+          :
+          <>
+          <NavLink className="nav__link" to="/login"><RiAccountBoxLine size={24}></RiAccountBoxLine>Login</NavLink>
+          </>
+        }
+      </div>
     </nav> 
     <div className="content">
       <Outlet></Outlet>

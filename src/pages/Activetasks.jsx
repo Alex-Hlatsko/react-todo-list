@@ -1,55 +1,36 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import TaskItem  from '../components/TaskItem'
-import { getDatabase, ref, remove, update } from "firebase/database";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useContext } from 'react';
+import { Context } from '../index';
+import { db } from '../index'
+import { collection, onSnapshot, query } from 'firebase/firestore';
+import StartedTask from '../components/StartedTask';
 
 const Activetasks = () => {
-  const [tasks, setTasks] = useState([]);
-  const url = "https://freex-e983a-default-rtdb.europe-west1.firebasedatabase.app/.json"
+  const {auth} = useContext(Context)
+  const [user] = useAuthState(auth);
+
+  const [tasksData, getTasks] = useState([]);
   useEffect(() => {
-    fetch (url)
-      .then(res => res.json())
-      .then(data => setTasks(data))
+    const q = query(collection(db, "tasks"))
+    const unsub = onSnapshot(q, (querySnapshot) => {
+      let tasksArray = []
+      querySnapshot.forEach((doc) => {
+        tasksArray.push({...doc.data(), id: doc.id})
+      })
+      getTasks(tasksArray)
+    })
+    return () => unsub()
     },[]);
-  
-  const changeTasklist = id => {
-    const db = getDatabase();
-    const copy = [...tasks]
-    const current = copy.find(t => t.id === id)
-    current.isStarted = !current.isStarted
-
-    // A post entry.
-    const postData = {
-      first_name: current.first_name,
-      id: current.id,
-      isStarted: current.isStarted,
-      last_name: current.last_name,     
-      time: current.time,
-      title: current.title,
-    };
-
-    // Write the new post's data simultaneously in the posts list and the user's post list.
-    const updates = {};
-    updates[id] = postData;
-
-    setTasks(copy)
-    return update(ref(db), updates);
-  }
-  const removeTasklist = id => {
-    const db = getDatabase();
-    remove(ref(db, String(id)))
-    setTasks([...tasks].filter(t => t == null ? '' : t.id !== id))
-  }
 
   return (
     <>
-      {
-        tasks.map(task => (
-          task == null ? '' 
-          :
-          task.isStarted ? <TaskItem key={task.id} tasks={task} changeTasklist={changeTasklist} removeTasklist={removeTasklist} url={url}/> : ''
-        ))
-      }
+    {
+      tasksData.map(task => (
+        task.startedBy === user.uid ? <StartedTask task={task}/> : '' 
+      ))
+    }
     </>
   )
 }

@@ -8,11 +8,11 @@ import { Context } from '.';
 
 function App() {
   const {auth} = useContext(Context)
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth)
   return user ? 
     (
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/' element={<Layout/>}>
           {privateRoutes.map(({path, Component})=>
           <Route path={path} element={Component}></Route>
           )}

@@ -1,14 +1,13 @@
 import React from 'react'
-import { BsTrash } from 'react-icons/bs'
-import { BiTask } from 'react-icons/bi'
+import { BsTrash, BsCheck } from 'react-icons/bs'
 import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext } from 'react';
 import { Context } from '../index';
 import { db } from '../index'
-import { collection, onSnapshot, query, deleteDoc, updateDoc, doc } from 'firebase/firestore';
+import { collection, onSnapshot, query, updateDoc, doc } from 'firebase/firestore';
 
-const Task = ( {task} ) => {
+const StartedTask = ( {task} ) => {
   const {auth} = useContext(Context)
   const [user] = useAuthState(auth);
 
@@ -25,26 +24,29 @@ const Task = ( {task} ) => {
     return () => unsub()
     },[]);
 
-  const startTask = id => {
+    const startTask = id => {
     const current = tasksData.find(t => t.id === id)
     if (current.taskId !== user.uid){
       updateDoc(doc(db, "tasks", id), {
-        startedBy: user.uid
+        isStarted: !current.isStarted
       })
     }
   }
 
   const deleteTask = id => {
     const current = tasksData.find(t => t.id === id)
-    if (current.taskId === user.uid){
-      deleteDoc(doc(db, "tasks", id))
+    if (current.startedBy === user.uid){
+      updateDoc(doc(db, "tasks", id), {
+        startedBy: ''
+      })
     }
   }
+
 
   return (
     <div className='task'>
       <button className='task__content' onClick={() => startTask(task.id)}>
-        {task.taskId === user.uid ? '' : <div className="task__content__ico"> <BiTask size={32}></BiTask> </div>}
+        <div className="task__content__ico"><BsCheck className={`${task.isStarted ? 'task_active': 'task_unactive'}`}></BsCheck></div>
         <div className="task__content__text">
           <h1 className='task__title'>{task.title}</h1>
           <p className='task__sub_title'>{task.author}</p>
@@ -52,10 +54,10 @@ const Task = ( {task} ) => {
         </div>
       </button>
       <button className='task__remove' onClick={() => deleteTask(task.id)}>
-      {task.taskId === user.uid ? <BsTrash size={32}></BsTrash> : ''}
+        <BsTrash size={32}></BsTrash>
       </button>
     </div>
   )
 }
 
-export default Task
+export default StartedTask

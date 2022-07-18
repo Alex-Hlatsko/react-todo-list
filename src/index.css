@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root{
-  --black: #1B1B23;
-  --grey: #27272F;
+  --black: #1D1E1F;
+  --grey: #17181A;
   --light_grey: #807F8C;
   --white: #ffffff;
 }
@@ -16,7 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--black);
+  background-color: var(--grey);
   color: var(--white);
 }
 
@@ -29,14 +29,14 @@ nav{
   position: fixed;
   left: 0;
   top: 0;
-  width: 250px;
+  width: 220px;
   height: 100vh;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  font-size: 24px;
-  background-color: var(--grey);
-  box-shadow: 8px 0 10px var(--black);
+  align-items: center;
+  font-size: 18px;
+  background-color: var(--black);
 }
 nav a.logo{
   color: var(--white);
@@ -48,7 +48,6 @@ nav .nav__link{
   display: flex;
   align-items: center;
   margin-top: 30px;
-  margin-left: 30px;
   color: var(--light_grey);
   transition: 0.3s;
 }
@@ -142,4 +141,8 @@ button.btn__sign{
   background-color: var(--white);
   color: var(--black);
 
+}
+.image{
+  width: 200px;
+  height: 200px;
 }
