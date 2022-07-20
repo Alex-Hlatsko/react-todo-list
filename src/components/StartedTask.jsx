@@ -1,5 +1,6 @@
 import React from 'react'
-import { BsTrash, BsCheck } from 'react-icons/bs'
+import { BsCheck } from 'react-icons/bs'
+import { TiDelete } from 'react-icons/ti'
 import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext } from 'react';
@@ -44,18 +45,20 @@ const StartedTask = ( {task} ) => {
 
 
   return (
-    <div className='task'>
-      <button className='task__content' onClick={() => startTask(task.id)}>
-        <div className="task__content__ico"><BsCheck className={`${task.isStarted ? 'task_active': 'task_unactive'}`}></BsCheck></div>
-        <div className="task__content__text">
+
+    <div className="task">
+      <div className="task__icon task__content__ico"><BsCheck onClick={() => startTask(task.id)} className={`${task.isStarted ? 'task_active': 'task_unactive'}`}></BsCheck></div>
+      <div className="task__content">
+        <div className="task__text">
           <h1 className='task__title'>{task.title}</h1>
           <p className='task__sub_title'>{task.author}</p>
-          <p className='task__sub_title'>{task.email}</p>
+          <a href={"mailto:"+ task.email}><p className='task__sub_title'>{task.email}</p></a>
         </div>
-      </button>
-      <button className='task__remove' onClick={() => deleteTask(task.id)}>
-        <BsTrash size={32}></BsTrash>
-      </button>
+        <div className="task__description">
+          <p className="task__sub_title text-gray-400">{task.subTitle}</p>
+        </div>
+        {task.taskId !== user.uid ? <div className="task__icon delete"><TiDelete size={32} onClick={() => deleteTask(task.id)}></TiDelete></div> : ''}
+      </div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext } from 'react';
 import { Context } from '../index';
 
-import {AiFillHome} from 'react-icons/ai'
+import {AiFillHome, AiFillFolderOpen} from 'react-icons/ai'
 import {BiUserPin} from 'react-icons/bi'
 import {FaTasks} from 'react-icons/fa'
 import {RiTaskFill, RiAccountBoxLine} from 'react-icons/ri'
@@ -25,6 +25,7 @@ const Layout = () => {
           <NavLink className="nav__link" to="/profile"><BiUserPin size={24}></BiUserPin>Profile</NavLink>
           <NavLink className="nav__link" to="/tasks"><FaTasks size={24}></FaTasks>Tasks</NavLink>
           <NavLink className="nav__link" to="/activetasks"><RiTaskFill size={24}></RiTaskFill>Active Tasks</NavLink>
+          <NavLink className="nav__link" to="/mytasks"><AiFillFolderOpen size={24}></AiFillFolderOpen>My Tasks</NavLink>
           <NavLink className="nav__link" to="/addtask"><GoDiffAdded size={24}></GoDiffAdded>Add task</NavLink>
           <NavLink className="nav__link" to="/signout"><ImExit size={24}></ImExit>Sign Out</NavLink>
           </>

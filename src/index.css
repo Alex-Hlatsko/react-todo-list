@@ -7,6 +7,8 @@
   --grey: #17181A;
   --light_grey: #807F8C;
   --white: #ffffff;
+  --dangerous: #EA1F1F;
+  --peaceful: #1FA185;
 }
 
 body {
@@ -19,7 +21,6 @@ body {
   background-color: var(--grey);
   color: var(--white);
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -70,34 +71,36 @@ nav a:hover{
 }
 .task{
   margin: 15px;
+  width: 90%;
+  height: 100px;
   display: flex;
   align-items: center;
-  width: 95%;
-  height: 100px;
+}
+.task__icon{
+  margin-right: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.delete:hover{
+  color: var(--dangerous);
+}
+.start:hover{
+  color: var(--peaceful);
+}
+.task__content{
+  width: 100%;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-.task .task__content{
-  display: flex;
-  align-items: center;
-}
-.task .task__remove:hover{
-  transition: 0.2s;
-  color: red;
-}
-.task__content .task__content__ico{
-  margin-right: 15px;
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-  background-color: var(--grey);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.task__content__text{
+.task__text{
+  width: 30%;
   display: flex;
   flex-direction: column;
-  text-align: left;
+}
+.task__description{
+  width: 50%;
 }
 .task__title{
   font-size: 24px;
@@ -111,6 +114,14 @@ nav a:hover{
 .task_unactive{
   opacity: 0;
 }
+.task__content__ico{
+  margin-right: 15px;
+  border: 2px solid var(--light_grey);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 button.btn__sign{
   width: 150px;
   border-radius: 5px;
@@ -120,18 +131,24 @@ button.btn__sign{
   color: var(--black);
 }
 .add__task__form{
+  width: 90%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
 }
 .add__task__form input{
   padding: 5px 10px;
   font-size: 18px;
   margin-top: 15px;
+  color: var(--black);
+}
+.add__title{
+  width: 50px;
+  height: 40px;
+}
+.add_sub_title{
   width: 500px;
   height: 40px;
-  color: var(--black);
 }
 .add__task__form button{
   margin-top: 15px;

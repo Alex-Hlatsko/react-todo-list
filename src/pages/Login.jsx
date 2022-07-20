@@ -15,8 +15,7 @@ const Login = () => {
       photoURL: user.photoURL,
       uid: user.uid,
       finishedTasks: 0
-    })   
-  console.log(user) 
+    })
   }
   return (
     <>

@@ -14,12 +14,13 @@ const Profile = () => {
     db.collection('users').doc(user.uid).get().then((snapshot) => {
       getData(snapshot.data())})
     },[]);
-
+    
   return (
     <>
     <div>
       <h1 className='title'>{userData.name}</h1>
       <img className="image" src={userData.photoURL} alt='img' />
+      <h1 className="sub__title">Finished Tasks: {userData.finishedTasks}</h1>
     </div>
     </>
   )

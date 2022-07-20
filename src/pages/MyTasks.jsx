@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext } from 'react';
 import { Context } from '../index';
 
-const Tasks = () => {
+const MyTasks = () => {
   const {auth} = useContext(Context)
   const [user] = useAuthState(auth);
 
@@ -29,11 +29,11 @@ const Tasks = () => {
     <div>Tasks</div>
     {
       tasksData.map(task => (
-        task.taskId === user.uid || task.startedBy !== '' ? '' : <TaskItem task={task}/> 
+        task.taskId === user.uid ? <TaskItem task={task}/>  : ''
       ))
     }
     </>
   )
 }
 
-export default Tasks
+export default MyTasks
