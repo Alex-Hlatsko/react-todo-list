@@ -23,7 +23,7 @@ firebase.initializeApp(
 
 export const Context = createContext(null) 
 const auth = firebase.auth();
-const firestore = firebase.firestore();
+export const db = firebase.firestore();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,8 +31,7 @@ root.render(
     <BrowserRouter>
       <Context.Provider value={{
         firebase,
-        auth,
-        firestore
+        auth
       }}>
         <App />
       </Context.Provider>

@@ -1,22 +1,86 @@
 import React from 'react'
-import {BsCheck, BsTrash} from 'react-icons/bs'
+import { BsTrash } from 'react-icons/bs'
+import { FaUserCog } from 'react-icons/fa'
+import { BiTask } from 'react-icons/bi'
+import { useState, useEffect } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useContext } from 'react';
+import { Context } from '../index';
+import { db } from '../index'
+import { collection, onSnapshot, query, deleteDoc, updateDoc, doc } from 'firebase/firestore';
 
-const TaskItem = ( {tasks, changeTasklist, removeTasklist} ) => {
+const Task = ( {task} ) => {
+  const {auth} = useContext(Context)
+  const [user] = useAuthState(auth);
+
+  const [tasksData, getTasks] = useState([]);
+  useEffect(() => {
+    const q = query(collection(db, "tasks"))
+    const unsub = onSnapshot(q, (querySnapshot) => {
+      let tasksArray = []
+      querySnapshot.forEach((doc) => {
+        tasksArray.push({...doc.data(), id: doc.id})
+      })
+      getTasks(tasksArray)
+    })
+    return () => unsub()
+    },[]);
+
+  const [usersData, getUsers] = useState([]);
+  useEffect(() => {
+    const q = query(collection(db, "users"))
+    const unsub = onSnapshot(q, (querySnapshot) => {
+      let usersArray = []
+      querySnapshot.forEach((doc) => {
+        usersArray.push({...doc.data(), id: doc.id})
+      })
+      getUsers(usersArray)
+    })
+    return () => unsub()
+    },[]);
+
+  const startTask = id => {
+    const current = tasksData.find(t => t.id === id)
+    if (current.taskId !== user.uid){
+      updateDoc(doc(db, "tasks", id), {
+        startedBy: user.uid
+      })
+    }
+  }
+
+  const deleteTask = id => {
+    const current = tasksData.find(t => t.id === id)
+    if (current.taskId === user.uid){
+      deleteDoc(doc(db, "tasks", id))
+    }
+  }
+
+  const finishTask = (userId, id) => {
+    const current = usersData.find(u => u.uid === userId)
+    const score = current.finishedTasks
+    updateDoc(doc(db, "users", userId), {
+      finishedTasks: score+1
+    })
+    deleteDoc(doc(db, "tasks", id))
+  }
+
   return (
-    <div className='task'>
-      <button className='task__content' onClick={() => changeTasklist(tasks.id)}>
-        <div className="task__content__ico"><BsCheck className={`${tasks.isStarted ? 'task_active': 'task_unactive'}`}></BsCheck></div>
-        <div className="task__content__text">
-          <h1 className='task__title'>{tasks.title}</h1>
-          <p className='task__sub_title'>{tasks.first_name} {tasks.last_name}</p>
-          <p className='task__sub_title'>{tasks.time}</p>
+    <div className="task flex items-center mt-5 w-11/12 rounded-lg p-3 px-6">
+      {task.taskId === user.uid ? '' : <div className="w-8 h-8 cursor-pointer start mr-4" ><BiTask className='hover:text-green-500' size={32} onClick={() => startTask(task.id)}></BiTask></div>}
+      {task.startedBy !== '' && task.isStarted === false ? <div className="w-8 h-8 mr-3" ><FaUserCog size={32}></FaUserCog></div> : ''}
+      {task.isStarted === true && task.startedBy !== '' ? <div className="w-8 h-8 cursor-pointer mr-3" ><FaUserCog className='text-green-500' size={32} onClick={() => finishTask(task.startedBy, task.id)}></FaUserCog></div> : ''}
+      <div className="w-full flex items-center justify-between">
+        <div className="w-1/3 flex flex-col">
+          <h1 className='text-2xl mb-2'>{task.title}</h1>
+          {task.taskId === user.uid ? '' : <><p className='text-sm'>{task.author}</p><a className='hover:text-violet-400 underline' href={"mailto:z"+ task.email}><p className='text-sm'>{task.email}</p></a></>}
         </div>
-      </button>
-      <button className='task__remove' onClick={() => removeTasklist(tasks.id)}>
-        <BsTrash size={32}></BsTrash>
-      </button>
+        <div className="w-2/4">
+          <p className="text-sm text-gray-400">{task.subTitle}</p>
+        </div>
+        {task.taskId === user.uid ? <div className="w-8 h-8 cursor-pointer"><BsTrash className='hover:text-rose-700' size={32} onClick={() => deleteTask(task.id)}></BsTrash></div> : ''}
+      </div>
     </div>
   )
 }
 
-export default TaskItem
+export default Task

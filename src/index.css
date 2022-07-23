@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 :root{
-  --black: #1B1B23;
-  --grey: #27272F;
+  --grey: #1D1E1F;
+  --black: #17181A;
   --light_grey: #807F8C;
   --white: #ffffff;
+  --dangerous: #EA1F1F;
+  --peaceful: #1FA185;
 }
 
 body {
@@ -18,39 +20,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--black);
   color: var(--white);
+  position: relative;
+  box-sizing: border-box;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-nav{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 250px;
-  height: 100vh;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  font-size: 24px;
+.navigation{
   background-color: var(--grey);
-  box-shadow: 8px 0 10px var(--black);
-}
-nav a.logo{
-  color: var(--white);
-  font-size: 44px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-nav .nav__link{
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-  margin-left: 30px;
-  color: var(--light_grey);
-  transition: 0.3s;
 }
 nav svg{
   display: inline-block;
@@ -65,52 +43,27 @@ nav a:hover{
 .content{
   padding-left: 270px;
   grid-area: content;
-  display: flex;
-  font-size: 56px;
-  flex-direction: column;
 }
 .task{
-  margin: 15px;
-  display: flex;
-  align-items: center;
-  width: 95%;
-  height: 100px;
-  justify-content: space-between;
-}
-.task .task__content{
-  display: flex;
-  align-items: center;
-}
-.task .task__remove:hover{
-  transition: 0.2s;
-  color: red;
-}
-.task__content .task__content__ico{
-  margin-right: 15px;
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
+  min-height: 100px;
   background-color: var(--grey);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.task__content__text{
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-.task__title{
-  font-size: 24px;
-}
-.task__sub_title{
-  font-size: 14px;
+.start:hover{
+  color: var(--peaceful);
 }
 .task_acitve{
   opacity: 1;
 }
 .task_unactive{
   opacity: 0;
+}
+.task__content__ico{
+  margin-right: 15px;
+  border: 2px solid var(--light_grey);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 button.btn__sign{
   width: 150px;
@@ -119,27 +72,4 @@ button.btn__sign{
   font-size: 24px;
   background-color: var(--white);
   color: var(--black);
-}
-.add__task__form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-.add__task__form input{
-  padding: 5px 10px;
-  font-size: 18px;
-  margin-top: 15px;
-  width: 500px;
-  height: 40px;
-  color: var(--black);
-}
-.add__task__form button{
-  margin-top: 15px;
-  font-size: 18px;
-  width: 100px;
-  height: 30px;
-  background-color: var(--white);
-  color: var(--black);
-
 }
