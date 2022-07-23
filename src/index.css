@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root{
-  --black: #1D1E1F;
-  --grey: #17181A;
+  --grey: #1D1E1F;
+  --black: #17181A;
   --light_grey: #807F8C;
   --white: #ffffff;
   --dangerous: #EA1F1F;
@@ -18,39 +18,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--grey);
+  background-color: var(--black);
   color: var(--white);
+  position: relative;
+  box-sizing: border-box;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-nav{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 220px;
-  height: 100vh;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 18px;
-  background-color: var(--black);
-}
-nav a.logo{
-  color: var(--white);
-  font-size: 44px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-nav .nav__link{
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-  color: var(--light_grey);
-  transition: 0.3s;
+.navigation{
+  background-color: var(--grey);
 }
 nav svg{
   display: inline-block;
@@ -65,48 +43,13 @@ nav a:hover{
 .content{
   padding-left: 270px;
   grid-area: content;
-  display: flex;
-  font-size: 56px;
-  flex-direction: column;
 }
 .task{
-  margin: 15px;
-  width: 90%;
-  height: 100px;
-  display: flex;
-  align-items: center;
-}
-.task__icon{
-  margin-right: 30px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-.delete:hover{
-  color: var(--dangerous);
+  min-height: 100px;
+  background-color: var(--grey);
 }
 .start:hover{
   color: var(--peaceful);
-}
-.task__content{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.task__text{
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-}
-.task__description{
-  width: 50%;
-}
-.task__title{
-  font-size: 24px;
-}
-.task__sub_title{
-  font-size: 14px;
 }
 .task_acitve{
   opacity: 1;
@@ -129,37 +72,4 @@ button.btn__sign{
   font-size: 24px;
   background-color: var(--white);
   color: var(--black);
-}
-.add__task__form{
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-
-}
-.add__task__form input{
-  padding: 5px 10px;
-  font-size: 18px;
-  margin-top: 15px;
-  color: var(--black);
-}
-.add__title{
-  width: 50px;
-  height: 40px;
-}
-.add_sub_title{
-  width: 500px;
-  height: 40px;
-}
-.add__task__form button{
-  margin-top: 15px;
-  font-size: 18px;
-  width: 100px;
-  height: 30px;
-  background-color: var(--white);
-  color: var(--black);
-
-}
-.image{
-  width: 200px;
-  height: 200px;
 }

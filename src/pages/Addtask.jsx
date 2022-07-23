@@ -33,15 +33,15 @@ const Addtask = () => {
 
   return (
     <>
-    <form className='add__task__form' onSubmit={handleSubmit}>
+    <form className='mt-6 w-11/12 flex flex-col' onSubmit={handleSubmit}>
 
-      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Task Name</label>
-      <textarea rows="1" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write task name there..." value={title} onChange={(e) => setTitle(e.target.value)}></textarea>
+      <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Task Name</label>
+      <textarea rows="1" className="block p-2.5 w-full text-sm text-gray-900 rounded-lg border  dark:bg-zinc-800  dark:text-white" placeholder="Write task name there..." value={title} onChange={(e) => setTitle(e.target.value)}></textarea>
       
-      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Description</label>
-      <textarea rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a description..." value={subTitle} onChange={(e) => setSubTitle(e.target.value)}></textarea>
+      <label className="block mb-1 mt-4 text-sm font-medium text-gray-900 dark:text-gray-400">Description</label>
+      <textarea rows="4" className="block p-2.5 w-full text-sm text-gray-900 rounded-lg border  dark:bg-zinc-800  dark:text-white" placeholder="Leave a description..." value={subTitle} onChange={(e) => setSubTitle(e.target.value)}></textarea>
       
-      <button>Send</button>
+      <button className='mt-4 text-base w-28 h-9 bg-gray-800 text-gray-50 rounded border border-gray-50 hover:bg-gray-50 hover:text-gray-800 transition'>Send</button>
     </form>
 
     

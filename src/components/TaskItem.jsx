@@ -65,19 +65,19 @@ const Task = ( {task} ) => {
   }
 
   return (
-    <div className="task">
-      {task.taskId === user.uid ? '' : <div className="task__icon start" ><BiTask size={32} onClick={() => startTask(task.id)}></BiTask></div>}
-      {task.startedBy !== '' && task.isStarted === false ? <div className="task__icon" ><FaUserCog size={32}></FaUserCog></div> : ''}
-      {task.isStarted === true ? <div className="task__icon" ><FaUserCog className='text-green-500' onClick={() => finishTask(task.startedBy, task.id)}size={32}></FaUserCog></div> : ''}
-      <div className="task__content">
-        <div className="task__text">
-          <h1 className='task__title'>{task.title}</h1>
-          {task.taskId === user.uid ? '' : <><p className='task__sub_title'>{task.author}</p><a href={"mailto:z"+ task.email}><p className='task__sub_title'>{task.email}</p></a></>}
+    <div className="task flex items-center mt-5 w-11/12 rounded-lg p-3 px-6">
+      {task.taskId === user.uid ? '' : <div className="w-8 h-8 cursor-pointer start mr-4" ><BiTask className='hover:text-green-500' size={32} onClick={() => startTask(task.id)}></BiTask></div>}
+      {task.startedBy !== '' && task.isStarted === false ? <div className="w-8 h-8 mr-3" ><FaUserCog size={32}></FaUserCog></div> : ''}
+      {task.isStarted === true && task.startedBy !== '' ? <div className="w-8 h-8 cursor-pointer mr-3" ><FaUserCog className='text-green-500' size={32} onClick={() => finishTask(task.startedBy, task.id)}></FaUserCog></div> : ''}
+      <div className="w-full flex items-center justify-between">
+        <div className="w-1/3 flex flex-col">
+          <h1 className='text-2xl mb-2'>{task.title}</h1>
+          {task.taskId === user.uid ? '' : <><p className='text-sm'>{task.author}</p><a className='hover:text-violet-400 underline' href={"mailto:z"+ task.email}><p className='text-sm'>{task.email}</p></a></>}
         </div>
-        <div className="task__description">
-          <p className="task__sub_title text-gray-400">{task.subTitle}</p>
+        <div className="w-2/4">
+          <p className="text-sm text-gray-400">{task.subTitle}</p>
         </div>
-        {task.taskId === user.uid ? <div className="task__icon delete"><BsTrash size={32} onClick={() => deleteTask(task.id)}></BsTrash></div> : ''}
+        {task.taskId === user.uid ? <div className="w-8 h-8 cursor-pointer"><BsTrash className='hover:text-rose-700' size={32} onClick={() => deleteTask(task.id)}></BsTrash></div> : ''}
       </div>
     </div>
   )

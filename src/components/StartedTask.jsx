@@ -25,7 +25,7 @@ const StartedTask = ( {task} ) => {
     return () => unsub()
     },[]);
 
-    const startTask = id => {
+  const startTask = id => {
     const current = tasksData.find(t => t.id === id)
     if (current.taskId !== user.uid){
       updateDoc(doc(db, "tasks", id), {
@@ -33,7 +33,6 @@ const StartedTask = ( {task} ) => {
       })
     }
   }
-
   const deleteTask = id => {
     const current = tasksData.find(t => t.id === id)
     if (current.startedBy === user.uid){
@@ -43,21 +42,19 @@ const StartedTask = ( {task} ) => {
     }
   }
 
-
   return (
-
-    <div className="task">
-      <div className="task__icon task__content__ico"><BsCheck onClick={() => startTask(task.id)} className={`${task.isStarted ? 'task_active': 'task_unactive'}`}></BsCheck></div>
-      <div className="task__content">
-        <div className="task__text">
-          <h1 className='task__title'>{task.title}</h1>
-          <p className='task__sub_title'>{task.author}</p>
-          <a href={"mailto:"+ task.email}><p className='task__sub_title'>{task.email}</p></a>
+    <div className="task flex items-center mt-5 w-11/12 rounded-lg p-3 px-4">
+      <div className="w-8 h-8 cursor-pointer task__content__ico"><BsCheck size={28} onClick={() => startTask(task.id)} className={`${task.isStarted ? 'task_active': 'task_unactive'}`}></BsCheck></div>
+      <div className="w-full flex items-center justify-between">
+        <div className="w-1/3 flex flex-col">
+          <h1 className='text-2xl mb-2'>{task.title}</h1>
+          <p className='text-sm'>{task.author}</p>
+          <a className='hover:text-violet-500 underline' href={"mailto:"+ task.email}><p className='text-sm'>{task.email}</p></a>
         </div>
-        <div className="task__description">
-          <p className="task__sub_title text-gray-400">{task.subTitle}</p>
+        <div className="w-2/4">
+          <p className="text-sm text-gray-400">{task.subTitle}</p>
         </div>
-        {task.taskId !== user.uid ? <div className="task__icon delete"><TiDelete size={32} onClick={() => deleteTask(task.id)}></TiDelete></div> : ''}
+        {task.taskId !== user.uid ? <div className="w-8 h-8 cursor-pointer hover:text-rose-700"><TiDelete size={32} onClick={() => deleteTask(task.id)}></TiDelete></div> : ''}
       </div>
     </div>
   )

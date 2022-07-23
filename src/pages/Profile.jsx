@@ -17,10 +17,15 @@ const Profile = () => {
     
   return (
     <>
-    <div>
-      <h1 className='title'>{userData.name}</h1>
-      <img className="image" src={userData.photoURL} alt='img' />
-      <h1 className="sub__title">Finished Tasks: {userData.finishedTasks}</h1>
+    <div className='flex pt-6 px-6 items-center'>
+      <div>
+        <img className="w-64 rounded-full h-64" src={userData.photoURL} alt='img' />
+      </div>
+      <div className='ml-6'>
+        <h1 className='text-4xl mt-3'>{userData.name}</h1>
+        <h1 className="text-xl mt-3">Rank: {userData.finishedTasks < 5 ? <span className='text-blue-600'>Beginning</span> : userData.finishedTasks >= 5 && userData.finishedTasks < 10 ? <span className='text-orange-500'>Advanced</span> : userData.finishedTasks >= 10 ? <span className='text-purple-700'>Master</span> : "Noob"}</h1>
+        <h1 className="text-xl mt-3">Finished Tasks: {userData.finishedTasks}</h1>
+      </div>
     </div>
     </>
   )
