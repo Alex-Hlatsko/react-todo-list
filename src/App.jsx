@@ -1,14 +1,22 @@
-import { Routes, Route, Navigate} from 'react-router-dom';
-import { privateRoutes, publicRoutes } from './routes';
-import {HOME_ROUTE, PROFILE_ROUTE} from './utils/consts';
-import Layout from './components/Layout';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useContext } from 'react';
-import { Context } from '.';
+import { Routes, Route, Navigate} from 'react-router-dom'
+
+//Import All For Firebase
+import { useContext } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { Context } from '.'
+
+// Import All For Links
+import { privateRoutes, publicRoutes } from './routes'
+import {HOME_ROUTE, PROFILE_ROUTE} from './utils/consts'
+
+import Layout from './components/Layout'
 
 function App() {
+  // Get User
   const {auth} = useContext(Context)
   const [user] = useAuthState(auth)
+
+  // If the user is logged in, display Private Routes (for users)
   return user ? 
     (
       <Routes>
@@ -20,6 +28,7 @@ function App() {
         </Route>
       </Routes>
     )
+    // If user is not logged in, display Public Routes
     :
     (
       <Routes>

@@ -1,18 +1,22 @@
 import React from 'react'
+
+//Import All For Firebase
+import { useState, useEffect, useContext } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { Context, db } from '../index'
+import { collection, onSnapshot, query, deleteDoc, updateDoc, doc } from 'firebase/firestore'
+
+//Import Icons
+import { BiTask } from 'react-icons/bi'
 import { BsTrash } from 'react-icons/bs'
 import { FaUserCog } from 'react-icons/fa'
-import { BiTask } from 'react-icons/bi'
-import { useState, useEffect } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useContext } from 'react';
-import { Context } from '../index';
-import { db } from '../index'
-import { collection, onSnapshot, query, deleteDoc, updateDoc, doc } from 'firebase/firestore';
 
 const Task = ( {task} ) => {
+  //Get User
   const {auth} = useContext(Context)
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth)
 
+  // Get All Tasks From Database
   const [tasksData, getTasks] = useState([]);
   useEffect(() => {
     const q = query(collection(db, "tasks"))
@@ -26,6 +30,7 @@ const Task = ( {task} ) => {
     return () => unsub()
     },[]);
 
+  // Get All Users From Database
   const [usersData, getUsers] = useState([]);
   useEffect(() => {
     const q = query(collection(db, "users"))
@@ -37,8 +42,11 @@ const Task = ( {task} ) => {
       getUsers(usersArray)
     })
     return () => unsub()
-    },[]);
+  },[]);
 
+  // Base Functions:
+
+  // 1. Take the Task
   const startTask = id => {
     const current = tasksData.find(t => t.id === id)
     if (current.taskId !== user.uid){
@@ -48,6 +56,7 @@ const Task = ( {task} ) => {
     }
   }
 
+  // 2. Delete the Task
   const deleteTask = id => {
     const current = tasksData.find(t => t.id === id)
     if (current.taskId === user.uid){
@@ -55,6 +64,7 @@ const Task = ( {task} ) => {
     }
   }
 
+  // 3. Turn in the Task (If someone completed your task, you can delete it and the one who completed your task is awarded a point)
   const finishTask = (userId, id) => {
     const current = usersData.find(u => u.uid === userId)
     const score = current.finishedTasks

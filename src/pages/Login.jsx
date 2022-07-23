@@ -1,12 +1,15 @@
 import React, { useContext } from 'react'
 import { useState, useEffect } from 'react'
-import { db } from '../index'
-import { collection, onSnapshot, query } from 'firebase/firestore';
-import firebase from 'firebase/compat/app';
-import { Context } from '../index';
+
+//Import All For Firebase
+import firebase from 'firebase/compat/app'
+import { collection, onSnapshot, query } from 'firebase/firestore'
+import { Context, db } from '../index'
 
 const Login = () => {
   const {auth} = useContext(Context)
+
+  // Get Users From Database and check if the user is in the database
   const [usersData, getUsers] = useState([]);
     useEffect(() => {
       const q = query(collection(db, "users"))
@@ -20,7 +23,8 @@ const Login = () => {
     return () => unsub()
     },[]);
 
-    
+    // If the user doesn't exist, then we enter it into the database
+    // If there is a user, then skip
     const login = async() => {
       const provider = new firebase.auth.GoogleAuthProvider()
       const {user} = await auth.signInWithPopup(provider)

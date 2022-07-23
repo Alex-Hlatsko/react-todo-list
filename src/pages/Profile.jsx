@@ -1,14 +1,16 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useContext } from 'react';
-import { Context } from '../index';
-import { db } from '../index'
+
+//Import All For Firebase
+import { useState, useEffect, useContext } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { Context,db } from '../index'
 
 const Profile = () => {
+  // Get User
   const {auth} = useContext(Context)
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth)
 
+  // Get All Tasks From Database
   const [userData, getData] = useState([]);
   useEffect(() => {
     db.collection('users').doc(user.uid).get().then((snapshot) => {
@@ -16,7 +18,6 @@ const Profile = () => {
     },[]);
     
   return (
-    <>
     <div className='flex pt-6 px-6 items-center'>
       <div>
         <img className="w-64 rounded-full h-64" src={userData.photoURL} alt='img' />
@@ -27,7 +28,6 @@ const Profile = () => {
         <h1 className="text-xl mt-3">Finished Tasks: {userData.finishedTasks}</h1>
       </div>
     </div>
-    </>
   )
 }
 
