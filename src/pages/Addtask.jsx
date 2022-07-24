@@ -1,18 +1,23 @@
-import React from 'react';
-import { useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useContext } from 'react';
-import { Context } from '../index';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../index';
+import React from 'react'
+
+// Improt All For Firebase
+import { useState, useContext } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { collection, addDoc } from 'firebase/firestore'
+import { Context, db } from '../index'
+
 
 const Addtask = () => {
+  // Get User
   const {auth} = useContext(Context)
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth)
 
+  // Get Task Tilte
   const [title, setTitle] = useState("");
+  // Get Task Description
   const [subTitle, setSubTitle] = useState("");
 
+  // Submit the Task
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (title !== "" && subTitle !== ""){
@@ -32,9 +37,8 @@ const Addtask = () => {
   }
 
   return (
-    <>
     <form className='mt-6 w-11/12 flex flex-col' onSubmit={handleSubmit}>
-
+  
       <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Task Name</label>
       <textarea rows="1" className="block p-2.5 w-full text-sm text-gray-900 rounded-lg border  dark:bg-zinc-800  dark:text-white" placeholder="Write task name there..." value={title} onChange={(e) => setTitle(e.target.value)}></textarea>
       
@@ -43,9 +47,6 @@ const Addtask = () => {
       
       <button className='mt-4 text-base w-28 h-9 bg-gray-800 text-gray-50 rounded border border-gray-50 hover:bg-gray-50 hover:text-gray-800 transition'>Send</button>
     </form>
-
-    
-    </>
   )
 }
 

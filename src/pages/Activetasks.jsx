@@ -1,16 +1,19 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useContext } from 'react';
-import { Context } from '../index';
-import { db } from '../index'
-import { collection, onSnapshot, query } from 'firebase/firestore';
-import StartedTask from '../components/StartedTask';
+
+//Import All For Firebase
+import { useState, useEffect, useContext } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { Context, db } from '../index'
+import { collection, onSnapshot, query } from 'firebase/firestore'
+
+import StartedTask from '../components/StartedTask'
 
 const Activetasks = () => {
+  // Get User
   const {auth} = useContext(Context)
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth)
 
+  // Get All Tasks From Database
   const [tasksData, getTasks] = useState([]);
   useEffect(() => {
     const q = query(collection(db, "tasks"))
@@ -26,11 +29,12 @@ const Activetasks = () => {
 
   return (
     <>
-    {
-      tasksData.map(task => (
-        task.startedBy === user.uid ? <StartedTask task={task}/> : '' 
-      ))
-    }
+      {
+        // Display TasksS
+        tasksData.map(task => (
+          task.startedBy === user.uid ? <StartedTask task={task}/> : '' 
+        ))
+      }
     </>
   )
 }

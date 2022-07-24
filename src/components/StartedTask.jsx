@@ -1,17 +1,21 @@
 import React from 'react'
+import { useState, useEffect, useContext } from 'react'
+
+//Import All For Firebase
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { Context, db } from '../index'
+import { collection, onSnapshot, query, updateDoc, doc } from 'firebase/firestore'
+
+// Import Icons
 import { BsCheck } from 'react-icons/bs'
 import { TiDelete } from 'react-icons/ti'
-import { useState, useEffect } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useContext } from 'react';
-import { Context } from '../index';
-import { db } from '../index'
-import { collection, onSnapshot, query, updateDoc, doc } from 'firebase/firestore';
 
 const StartedTask = ( {task} ) => {
+  // Get User
   const {auth} = useContext(Context)
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth)
 
+  // Get All Tasks From Database
   const [tasksData, getTasks] = useState([]);
   useEffect(() => {
     const q = query(collection(db, "tasks"))
@@ -25,6 +29,9 @@ const StartedTask = ( {task} ) => {
     return () => unsub()
     },[]);
 
+  // Base Functions:
+
+  // 1. Checkbox (done task or no) 
   const startTask = id => {
     const current = tasksData.find(t => t.id === id)
     if (current.taskId !== user.uid){
@@ -33,6 +40,7 @@ const StartedTask = ( {task} ) => {
       })
     }
   }
+  // 2. Abandon the Task
   const deleteTask = id => {
     const current = tasksData.find(t => t.id === id)
     if (current.startedBy === user.uid){
