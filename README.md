@@ -12,11 +12,14 @@ The purpose of this project is to help people **gain experience** and also **cre
 
 # Available Scripts
 
+### `npm i`
+To download libraries
+
 ### `npm run start`
-For start app
+To start app
 
 ### `npm run build`
-For build app
+To build app
 
 <br>
 <br>
