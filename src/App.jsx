@@ -5,11 +5,9 @@ import { useContext } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Context } from '.'
 
-// Import All For Links
-import { privateRoutes, publicRoutes } from './routes'
-import {HOME_ROUTE, PROFILE_ROUTE} from './utils/consts'
-
-import Layout from './components/Layout'
+import Layout from './components/Layout/Layout'
+import Welcome from './pages/Welcome/Welcome'
+import Home from './pages/Home/Home'
 
 function App() {
   // Get User
@@ -20,23 +18,20 @@ function App() {
   return user ? 
     (
       <Routes>
-        <Route path='/' element={<Layout/>}>
-          {privateRoutes.map(({path, Component})=>
-          <Route path={path} element={Component}></Route>
-          )}
-          <Route path="*" element={<Navigate to={PROFILE_ROUTE}/>}/>
+        <Route path='/' element={<Layout user={user}/>}>
+          <Route path="/home" element={<Home user={user}/>} />
+          <Route path="*" element={<Navigate to="/home"/>}/>
         </Route>
       </Routes>
     )
+
     // If user is not logged in, display Public Routes
     :
     (
       <Routes>
-        <Route path='/' element={<Layout />}>
-          {publicRoutes.map(({path, Component})=>
-            <Route path={path} element={Component}></Route>
-          )}
-          <Route path="*" element={<Navigate to={HOME_ROUTE}/>}/>
+        <Route path='/' element={<Layout user={user}/>}>
+          <Route path="/welcome" element={<Welcome/>} />
+          <Route path="*" element={<Navigate to="/welcome"/>}/>
         </Route>
       </Routes>
     )}

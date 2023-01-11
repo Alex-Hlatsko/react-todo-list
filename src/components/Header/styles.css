@@ -1,0 +1,19 @@
+.nav{
+    padding: 0.3rem 1rem;
+    background-color: var(--grey);
+}
+a.active{
+    color: var(--white);
+}
+nav a:hover{
+    color: var(--white);
+}
+.burger{
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .burger{
+        display: block;
+    }
+}
