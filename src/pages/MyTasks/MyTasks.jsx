@@ -1,18 +1,13 @@
 import React from 'react'
 
 //Import All For Firebase
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { collection, onSnapshot, query } from 'firebase/firestore'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { Context, db } from '../../index'
+import { db } from '../../index'
 
 import TaskItem  from '../../components/TaskItem'
 
-const MyTasks = () => {
-  // Get User
-  const {auth} = useContext(Context)
-  const [user] = useAuthState(auth)
-
+const MyTasks = ({user}) => {
   // Get All Tasks From Database
   const [tasksData, getTasks] = useState([]);
   useEffect(() => {

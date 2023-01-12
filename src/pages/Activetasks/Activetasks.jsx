@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { db } from '../../index'
 import { collection, onSnapshot, query } from 'firebase/firestore'
 
-// import StartedTask from '../../components/StartedTask/StartedTask'
+import StartedTask from '../../components/StartedTask/StartedTask'
 
 const Activetasks = ({user}) => {
 
@@ -25,12 +25,12 @@ const Activetasks = ({user}) => {
 
   return (
     <>
-      {/* {
+      {
         // Display TasksS
         tasksData.map(task => (
           task.startedBy === user.uid ? <StartedTask task={task}/> : '' 
         ))
-      } */}
+      }
       ActiveTasks
     </>
   )
