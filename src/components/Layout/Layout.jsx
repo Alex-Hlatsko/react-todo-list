@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import './styles.css'
 
@@ -7,11 +7,13 @@ import Header from '../Header/Header'
 
 const Layout = ({user}) => {
 
+  const [menuState, setMenuState] = useState(false);
+
   return (
     <>
-      <Navigation className="nav" user={user}/> 
-      <Header user={user}/>
-      <div className="content flex flex-col mt-16">
+      <Navigation className="nav" user={user} setMenuState={setMenuState} menuState={menuState}/> 
+      <Header user={user} setMenuState={setMenuState} menuState={menuState}/>
+      <div className="content flex flex-col">
         <Outlet></Outlet>
       </div>
     </>

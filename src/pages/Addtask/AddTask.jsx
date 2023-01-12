@@ -4,7 +4,7 @@ import React from 'react'
 import { useState, useContext } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { collection, addDoc } from 'firebase/firestore'
-import { Context, db } from '../index'
+import { Context, db } from '../../index'
 
 
 const Addtask = () => {

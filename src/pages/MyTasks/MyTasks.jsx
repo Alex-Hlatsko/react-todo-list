@@ -4,9 +4,9 @@ import React from 'react'
 import { useState, useEffect, useContext } from 'react'
 import { collection, onSnapshot, query } from 'firebase/firestore'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Context, db } from '../index'
+import { Context, db } from '../../index'
 
-import TaskItem  from '../components/TaskItem'
+import TaskItem  from '../../components/TaskItem'
 
 const MyTasks = () => {
   // Get User

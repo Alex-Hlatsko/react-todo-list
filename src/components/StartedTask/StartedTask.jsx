@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react'
 
 //Import All For Firebase
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Context, db } from '../index'
+import { Context, db } from '../../index'
 import { collection, onSnapshot, query, updateDoc, doc } from 'firebase/firestore'
 
 // Import Icons

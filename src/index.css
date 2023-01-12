@@ -27,10 +27,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.content{
-  padding-left: 270px;
-  grid-area: content;
-}
+
 .task{
   min-height: 100px;
   background-color: var(--grey);

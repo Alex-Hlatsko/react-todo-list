@@ -1,17 +1,13 @@
 import React from 'react'
 
 //Import All For Firebase
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
+import { db } from '../../index'
 import { collection, onSnapshot, query } from 'firebase/firestore'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { Context, db } from '../index'
 
-import TaskItem  from '../components/TaskItem'
+// import StartedTask from '../../components/StartedTask/StartedTask'
 
-const Tasks = () => {
-  // Get User
-  const {auth} = useContext(Context)
-  const [user] = useAuthState(auth);
+const Activetasks = ({user}) => {
 
   // Get All Tasks From Database
   const [tasksData, getTasks] = useState([]);
@@ -25,18 +21,19 @@ const Tasks = () => {
       getTasks(tasksArray)
     })
     return () => unsub()
-    },[]);
+  },[]);
 
   return (
     <>
-    {
-      // Display Tasks
-      tasksData.map(task => (
-        task.taskId === user.uid || task.startedBy !== '' ? '' : <TaskItem task={task}/> 
-      ))
-    }
+      {/* {
+        // Display TasksS
+        tasksData.map(task => (
+          task.startedBy === user.uid ? <StartedTask task={task}/> : '' 
+        ))
+      } */}
+      ActiveTasks
     </>
   )
 }
 
-export default Tasks
+export default Activetasks
