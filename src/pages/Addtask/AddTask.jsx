@@ -1,17 +1,12 @@
 import React from 'react'
 
 // Improt All For Firebase
-import { useState, useContext } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth'
+import { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
-import { Context, db } from '../index'
+import { db } from '../../index'
 
 
-const Addtask = () => {
-  // Get User
-  const {auth} = useContext(Context)
-  const [user] = useAuthState(auth)
-
+const Addtask = ({user}) => {
   // Get Task Tilte
   const [title, setTitle] = useState("");
   // Get Task Description

@@ -27,23 +27,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.navigation{
-  background-color: var(--grey);
-}
-nav svg{
-  display: inline-block;
-  margin-right: 15px;
-}
-a.active{
-  color: var(--white);
-}
-nav a:hover{
-  color: var(--white);
-}
-.content{
-  padding-left: 270px;
-  grid-area: content;
-}
+
 .task{
   min-height: 100px;
   background-color: var(--grey);

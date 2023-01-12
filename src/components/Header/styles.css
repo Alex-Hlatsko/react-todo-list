@@ -1,0 +1,31 @@
+.header{
+    padding: 0.3rem 1rem;
+    background-color: var(--grey);
+    justify-content: end;
+}
+a.active{
+    color: var(--white);
+}
+header a:hover{
+    color: var(--white);
+}
+.menu_icon{
+    display: none;
+    margin-left: 0.5rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .header{
+       z-index: 55; 
+       justify-content: space-between;
+    }
+    .header_user{
+        flex-direction: row-reverse;
+    }
+    .menu_icon{
+        display: block;
+    }
+    .header_name{
+        margin-left: 0.5rem;
+    }
+}

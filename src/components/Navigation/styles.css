@@ -1,0 +1,17 @@
+nav.active{
+    display: flex;
+    width: 100%;
+    padding-bottom: 5rem;
+}
+nav.active a{
+    font-size: 1.4rem;
+    margin-top: 2.4rem;
+}
+nav{
+   width: 12rem; 
+}
+@media only screen and (max-width: 800px) {
+    nav.nav{
+        display: none;
+    }
+}
