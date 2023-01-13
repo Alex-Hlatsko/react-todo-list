@@ -70,8 +70,6 @@ const Task = ({task, user}) => {
     deleteDoc(doc(db, "tasks", id))
   }
 
-  console.log(user?.uid)
-
   return (
     <div className="task flex items-center mt-5 rounded-lg p-3 px-6">
       {task?.taskId === user?.uid ? '' : <div className="w-8 h-8 cursor-pointer start mr-4" ><BiTask className='hover:text-yellow-400 text-white' size={32} onClick={() => startTask(task?.id)}></BiTask></div>}
