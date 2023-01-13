@@ -1,0 +1,23 @@
+.task{
+    background-color: var(--purple);
+}
+.task_title{
+    font-size: 1.5rem;
+}
+.task_desc{
+    font-size: 1rem;
+}
+.task_mail{
+    font-size: 0.8rem;
+}
+@media only screen and (max-width: 800px) {
+    .task_desc{
+        font-size: 0.8rem;
+    }
+    .task_title{
+        font-size: 1rem;
+    }
+    .task_mail{
+        font-size: 0.4rem;
+    }
+}

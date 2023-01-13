@@ -28,10 +28,9 @@ const Activetasks = ({user}) => {
       {
         // Display TasksS
         tasksData.map(task => (
-          task.startedBy === user.uid ? <StartedTask task={task}/> : '' 
+          task.startedBy === user.uid ? <StartedTask task={task} user={user}/> : '' 
         ))
       }
-      ActiveTasks
     </>
   )
 }

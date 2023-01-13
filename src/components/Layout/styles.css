@@ -1,9 +1,10 @@
 .content{
-    padding-left: 12rem;
+    padding-left: 13rem;
     padding-top: 3rem;
+    padding-right: 1rem;
 }
 @media only screen and (max-width: 800px) {
     .content{
-        padding: 3rem 0.5rem;
+        padding: 3rem 1rem;
     }
 }

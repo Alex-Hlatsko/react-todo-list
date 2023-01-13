@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { useState, useEffect } from 'react'
+import './styles.css'
 
 //Import All For Firebase
 import firebase from 'firebase/compat/app'
@@ -44,14 +45,16 @@ const Welcome = () => {
   }
   return (
     <>
-    <div className="w-full flex justify-between items-center">
-      <div className='w-1/2 pr-12'>
-        <h1 className="text-6xl text-gray-300">Login</h1>
-        <p className="text-base text-gray-400 mt-6">Join our big and friendly family. Your future is in your hands</p>
-        <button className="text-center mt-4 text-base w-28 h-9 bg-gray-800 text-gray-50 rounded border border-gray-50 hover:bg-gray-50 hover:text-gray-800 transition" onClick={login}>Join</button>
+    <div className="welcome w-full h-screen flex items-center">
+      <div className='welcome_content flex flex-col items-center'>
+        <div className="w-9/12">
+          <h1 className="text-6xl text-purple-400">Freex</h1>
+          <p className="text-base text-gray-400 mt-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur id similique animi aliquam! Voluptatibus!</p>
+          <button className="text-center mt-4 text-base w-28 h-9 bg-gray-800 text-gray-50 rounded border border-gray-50 hover:bg-gray-50 hover:text-gray-800 transition" onClick={login}>Join</button>
+        </div>
       </div>
-      <div className='w-1/2'>
-        <img src="images/login.png" alt="img" className="w-30" />
+      <div className='welcome_img'>
+        <img src="images/welcome.jpg" alt="img" className="w-30" />
       </div>
     </div>
     </>

@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root{
-  --grey: #1D1E1F;
-  --black: #17181A;
-  --light_grey: #807F8C;
+  --grey: #848393;
+  --light_grey: #D9D9D9;
   --white: #ffffff;
   --dangerous: #EA1F1F;
-  --peaceful: #1FA185;
+  --purple: #A18AFF;
+  --yellow: #FAC608;
 }
 
 body {
@@ -18,19 +18,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--black);
-  color: var(--white);
   position: relative;
   box-sizing: border-box;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.task{
-  min-height: 100px;
-  background-color: var(--grey);
 }
 .start:hover{
   color: var(--peaceful);

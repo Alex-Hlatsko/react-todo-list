@@ -1,19 +1,16 @@
 import React from 'react'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
+import './styles.css'
 
 //Import All For Firebase
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { Context, db } from '../../index'
+import { db } from '../../index'
 import { collection, onSnapshot, query, updateDoc, doc } from 'firebase/firestore'
 
 // Import Icons
 import { BsCheck } from 'react-icons/bs'
 import { TiDelete } from 'react-icons/ti'
 
-const StartedTask = ( {task} ) => {
-  // Get User
-  const {auth} = useContext(Context)
-  const [user] = useAuthState(auth)
+const StartedTask = ({task, user}) => {
 
   // Get All Tasks From Database
   const [tasksData, getTasks] = useState([]);
@@ -51,18 +48,18 @@ const StartedTask = ( {task} ) => {
   }
 
   return (
-    <div className="task flex items-center mt-5 w-11/12 rounded-lg p-3 px-4">
+    <div className="task flex items-center mt-5 w-full rounded-lg p-3 px-4">
       <div className="w-8 h-8 cursor-pointer task__content__ico"><BsCheck size={28} onClick={() => startTask(task.id)} className={`${task.isStarted ? 'task_active': 'task_unactive'}`}></BsCheck></div>
       <div className="w-full flex items-center justify-between">
         <div className="w-1/3 flex flex-col">
-          <h1 className='text-2xl mb-2'>{task.title}</h1>
-          <p className='text-sm'>{task.author}</p>
-          <a className='hover:text-violet-500 underline' href={"mailto:"+ task.email}><p className='text-sm'>{task.email}</p></a>
+          <h1 className='task_title mb-2x text-white'>{task.title}</h1>
+          <p className='text-sm text-white'>{task.author}</p>
+          <a href={"mailto:"+ task.email}><p className='task_mail text-white hover:text-yellow-400'>{task.email}</p></a>
         </div>
         <div className="w-2/4">
-          <p className="text-sm text-gray-400">{task.subTitle}</p>
+          <p className="task_desc text-white">{task.subTitle}</p>
         </div>
-        {task.taskId !== user.uid ? <div className="w-8 h-8 cursor-pointer hover:text-rose-700"><TiDelete size={32} onClick={() => deleteTask(task.id)}></TiDelete></div> : ''}
+        {task.taskId !== user.uid ? <div className="w-8 h-8 cursor-pointer hover:text-rose-500 text-white"><TiDelete size={32} onClick={() => deleteTask(task.id)}></TiDelete></div> : ''}
       </div>
     </div>
   )

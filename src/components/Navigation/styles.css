@@ -2,13 +2,29 @@ nav.active{
     display: flex;
     width: 100%;
     padding-bottom: 5rem;
+    background-color: var(--white);
+}
+nav a.active:hover{
+    color: var(--yellow);
+}
+nav a:hover{
+    color: var(--grey);
 }
 nav.active a{
     font-size: 1.4rem;
     margin-top: 2.4rem;
 }
+a.active{
+    color: var(--yellow);
+}
 nav{
    width: 12rem; 
+}
+.logo{
+    color: var(--purple);
+}
+.logo:hover{
+    color: var(--yellow);
 }
 @media only screen and (max-width: 800px) {
     nav.nav{

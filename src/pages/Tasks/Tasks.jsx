@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { collection, onSnapshot, query } from 'firebase/firestore'
 import { db } from '../../index'
 
-import TaskItem  from '../../components/TaskItem'
+import TaskItem  from '../../components/TaskItem/TaskItem'
 
 const Tasks = ({user}) => {
 
@@ -28,7 +28,7 @@ const Tasks = ({user}) => {
     {
       // Display Tasks
       tasksData.map(task => (
-        task.taskId === user.uid || task.startedBy !== '' ? '' : <TaskItem task={task}/> 
+        task.taskId === user.uid || task.startedBy !== '' ? '' : <TaskItem task={task} user={user}/> 
       ))
     }
     </>
