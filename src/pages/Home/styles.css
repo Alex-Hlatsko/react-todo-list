@@ -1,0 +1,17 @@
+.profile_img{
+    width: 12rem;
+}
+.profile_img img{
+    width: 18rem;
+}
+.profile_content{
+    width: 18rem;
+}
+@media only screen and (max-width: 800px) {
+    .home{
+        justify-content: center;
+    }
+    .profile_content{
+        margin-top: 2rem;
+    }
+}

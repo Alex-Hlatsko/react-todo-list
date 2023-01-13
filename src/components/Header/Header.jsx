@@ -8,13 +8,13 @@ const Header = ({user, setMenuState, menuState}) => {
   return (
     <div className="header fixed z-20 left-0 top-0 w-full flex items-center px-10">
         <div className="header_user flex items-center">
-          <NavLink to="profile"><h1 className="header_name text-base text-gray-50 mr-3">{user?.displayName}</h1></NavLink>
-          <NavLink to="profile"><img className='w-11 h-11 rounded-full' src={user?.photoURL}  alt="img" /></NavLink>
+          <NavLink to="profile"><h1 className="header_name text-base mr-3">{user?.displayName}</h1></NavLink>
+          <NavLink to="profile"><img className='w-10 h-10 rounded-full' src={user?.photoURL}  alt="img" /></NavLink>
         </div>
         {menuState ? 
-        <MdOutlineClose className="menu_icon" size={32} onClick={()=>setMenuState((menuState)=>menuState=!menuState)}/>
+        <MdOutlineClose className="menu_icon" color="black" size={38} onClick={()=>setMenuState((menuState)=>menuState=!menuState)}/>
         :
-        <BiMenu className="menu_icon" size={32} onClick={()=>setMenuState((menuState)=>menuState=!menuState)}/>
+        <BiMenu className="menu_icon" color="black" size={38} onClick={()=>setMenuState((menuState)=>menuState=!menuState)}/>
         }
     </div>
   )
