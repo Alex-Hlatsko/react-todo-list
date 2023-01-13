@@ -27,7 +27,7 @@ const MyTasks = ({user}) => {
     {
       // Display Tasks
       tasksData.map(task => (
-        task.taskId === user?.uid ? <TaskItem task={task} user={user}/>  : ''
+        task.taskId === user?.uid ? <TaskItem task={task} user={user} key={task.taskId}/>  : ''
       ))
     }
     </>

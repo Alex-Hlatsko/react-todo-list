@@ -28,7 +28,7 @@ const Tasks = ({user}) => {
     {
       // Display Tasks
       tasksData.map(task => (
-        task.taskId === user.uid || task.startedBy !== '' ? '' : <TaskItem task={task} user={user}/> 
+        task.taskId === user.uid || task.startedBy !== '' ? '' : <TaskItem task={task} user={user} key={task.taskId}/> 
       ))
     }
     </>
