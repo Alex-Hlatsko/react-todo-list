@@ -5,13 +5,16 @@ import { db } from '../../index'
 
 import './styles.css'
 
-const Home = ({user}) => {
+const Home = ({ user }) => {
   // Get All Tasks From Database
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    db.collection('users').doc(user?.uid).get().then((snapshot) => {
-      setUserData(snapshot.data())})
-  },[]);
+    if (user?.uid) {
+      db.collection('users').doc(user.uid).get().then((snapshot) => {
+        setUserData(snapshot.data())
+      });
+    }
+  }, [user?.uid]);
 
   return (
     <div className='home flex pt-6 px-6 items-center flex-wrap'>
