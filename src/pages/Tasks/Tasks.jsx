@@ -6,6 +6,7 @@ import { collection, onSnapshot, query } from 'firebase/firestore'
 import { db } from '../../index'
 
 import TaskItem  from '../../components/TaskItem/TaskItem'
+import { Link } from 'react-router-dom'
 
 const Tasks = ({user}) => {
 
@@ -25,6 +26,7 @@ const Tasks = ({user}) => {
 
   return (
     <>
+    <Link to="/mytasks" className='custom_button text-center mt-4 mb-4'>My tasks</Link>
     {
       // Display Tasks
       tasksData.map(task => (

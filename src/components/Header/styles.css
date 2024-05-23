@@ -1,15 +1,15 @@
 .header{
     padding: 0.4rem 2rem;
     justify-content: end;
-    border-bottom: 1px solid var(--purple);
-    background-color: var(--white);
+    box-shadow: 0 0 10px #694F95; 
+    color: #fff;
+    background-color: #1F082A;
+    border-radius: 0 0 5px 5px;
 }
-.header a{
-    color: black;
+.header_img{
+    border: 2px solid #694F95;
 }
-.header a:hover{
-    color: var(--yellow);
-}
+
 .menu_icon{
     display: none;
     margin-left: 0.5rem;
@@ -19,8 +19,8 @@
 @media only screen and (max-width: 800px) {
     .header{
        z-index: 55; 
-       justify-content: space-between;
-       padding: 0.6rem 1.2rem;
+       /* justify-content: space-between; */
+       padding: 0.8rem 1.2rem;
     }
     .header_user{
         flex-direction: row-reverse;

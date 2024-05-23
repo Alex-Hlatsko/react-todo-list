@@ -1,5 +1,6 @@
 .task{
-    background-color: var(--purple);
+    background-color: #40285A;
+    border-radius: 2px;
 }
 .task_title{
     font-size: 1.5rem;
@@ -9,6 +10,15 @@
 }
 .task_mail{
     font-size: 0.8rem;
+}
+.task_icon{
+    color: #7A57A0;
+}
+.top_task{
+    text-align: center;
+    color: #7A57A0;
+    font-weight: bold;
+    border-bottom: 2px solid #7A57A0;
 }
 @media only screen and (max-width: 800px) {
     .task_desc{

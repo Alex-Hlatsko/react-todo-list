@@ -1,12 +1,13 @@
 .welcome{
     justify-content: space-between;
-    padding: 1rem 0.4rem;
+    padding: 1rem;
 }
 .welcome_content{
     width: 50%;
 }
 .welcome_img{
-    width: 50%;
+    display: flex;
+    justify-content: center;
 }
 @media only screen and (max-width: 750px) {
     .welcome{

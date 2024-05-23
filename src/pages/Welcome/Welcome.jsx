@@ -47,14 +47,14 @@ const Welcome = () => {
     <>
     <div className="welcome w-full h-screen flex items-center">
       <div className='welcome_content flex flex-col items-center'>
-        <div className="w-9/12">
-          <h1 className="text-6xl text-purple-400">Freex</h1>
-          <p className="text-base text-gray-400 mt-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur id similique animi aliquam! Voluptatibus!</p>
-          <button className="text-center mt-4 text-base w-28 h-9 bg-gray-800 text-gray-50 rounded border border-gray-50 hover:bg-gray-50 hover:text-gray-800 transition" onClick={login}>Join</button>
+        <div className="">
+          <h1 className="text-6xl uppercase font-bold text-white">Sport <span className='liner'>Challenges</span></h1>
+          {/* <p className="text-base text-gray-400 mt-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur id similique animi aliquam! Voluptatibus!</p> */}
+          <button className="text-center text-white custom_button mt-16" onClick={login}>Join</button>
         </div>
       </div>
       <div className='welcome_img'>
-        <img src="images/welcome.jpg" alt="img" className="w-30" />
+        <img src="images/welcome.png" alt="img" className="w-30" />
       </div>
     </div>
     </>

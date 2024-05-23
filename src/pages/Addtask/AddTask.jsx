@@ -4,7 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../../index'
-
+import './styles.css'
 
 const Addtask = ({user}) => {
   // Get Task Tilte
@@ -34,13 +34,13 @@ const Addtask = ({user}) => {
   return (
     <form className='mt-6 flex flex-col' onSubmit={handleSubmit}>
   
-      <label className="block mb-1 text-sm font-medium text-purple-400">Task Name</label>
-      <textarea rows="1" className="block p-2.5 w-full text-sm bg-purple-400 text-white placeholder:text-gray-50 rounded-lg" placeholder="Write task name there..." value={title} onChange={(e) => setTitle(e.target.value)}></textarea>
+      <label className=" mb-2">Challenge Name</label>
+      <textarea rows="1" maxlength="25" className="" placeholder="Write task name there..." value={title} onChange={(e) => setTitle(e.target.value)}></textarea>
       
-      <label className="block mb-1 mt-4 text-sm font-medium text-purple-400">Description</label>
-      <textarea rows="4" className="block p-2.5 w-full text-sm rounded-lg bg-purple-400 text-white placeholder:text-gray-50" placeholder="Leave a description..." value={subTitle} onChange={(e) => setSubTitle(e.target.value)}></textarea>
+      <label className="mt-10 mb-2">Description</label>
+      <textarea rows="4" maxlength="100" className="" placeholder="Leave a description..." value={subTitle} onChange={(e) => setSubTitle(e.target.value)}></textarea>
       
-      <button className='mt-4 text-base w-28 h-9 bg-yellow-400 text-gray-50 rounded border border-gray-50 hover:bg-gray-50 hover:text-gray-800 transition'>Send</button>
+      <button className='custom_button mt-10'>Send</button>
     </form>
   )
 }
