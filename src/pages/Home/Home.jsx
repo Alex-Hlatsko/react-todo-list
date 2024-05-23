@@ -14,10 +14,12 @@ const Home = ({ user }) => {
   // Get All Tasks From Database
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    db.collection('users').doc(user?.uid).get().then((snapshot) => {
-      setUserData(snapshot.data())
-    })
-  }, []);
+    if (user?.uid) {
+      db.collection('users').doc(user.uid).get().then((snapshot) => {
+        setUserData(snapshot.data())
+      })
+    }
+  }, [user?.uid]);
 
   return (
     <>
