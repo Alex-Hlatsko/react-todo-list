@@ -1,0 +1,25 @@
+.welcome{
+    justify-content: space-between;
+    padding: 1rem;
+}
+.welcome_content{
+    width: 50%;
+}
+.welcome_img{
+    display: flex;
+    justify-content: center;
+}
+@media only screen and (max-width: 750px) {
+    .welcome{
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    .welcome_content{
+        margin-top: 2rem;
+        width: 100%;
+        text-align: center;
+    }
+    .welcome_img{
+        width: 100%;
+    }
+}

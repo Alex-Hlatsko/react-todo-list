@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root{
-  --grey: #1D1E1F;
-  --black: #17181A;
-  --light_grey: #807F8C;
+  --grey: #848393;
+  --light_grey: #D9D9D9;
   --white: #ffffff;
   --dangerous: #EA1F1F;
-  --peaceful: #1FA185;
+  --purple: #A18AFF;
+  --yellow: #FAC608;
 }
 
 body {
@@ -18,35 +18,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--black);
-  color: var(--white);
   position: relative;
   box-sizing: border-box;
+  background-color: #1F082A;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.navigation{
-  background-color: var(--grey);
-}
-nav svg{
-  display: inline-block;
-  margin-right: 15px;
-}
-a.active{
-  color: var(--white);
-}
-nav a:hover{
-  color: var(--white);
-}
-.content{
-  padding-left: 270px;
-  grid-area: content;
-}
-.task{
-  min-height: 100px;
-  background-color: var(--grey);
+.liner{
+  background: linear-gradient(to right, #E93C9E, #24A3EC); /* Градиент */
+    -webkit-background-clip: text; /* Поддержка для веб-кита */
+    -webkit-text-fill-color: transparent; 
 }
 .start:hover{
   color: var(--peaceful);
@@ -72,4 +55,29 @@ button.btn__sign{
   font-size: 24px;
   background-color: var(--white);
   color: var(--black);
+}
+.custom_button {
+  background-color: #1F082A; /* Цвет фона кнопки */
+  color: white; /* Цвет текста */
+  padding: 1rem 4rem; /* Внутренние отступы */
+  border: none; /* Убираем стандартную рамку */
+  border-radius: 5px; /* Скругленные углы */
+  font-size: 16px; /* Размер шрифта */
+  cursor: pointer; /* Курсор при наведении */
+  position: relative; /* Относительное позиционирование */
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.custom_button::before {
+  content: '';
+  position: absolute;
+  top: -2px; /* Чтобы рамка была за пределами кнопки */
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 3px; /* Скругление углов, чтобы совпадало с кнопкой */
+  background: linear-gradient(to right, #E93C9E, #24A3EC); /* Градиентная рамка */
+  z-index: -1; /* Помещаем рамку под кнопку */
 }

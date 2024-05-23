@@ -1,0 +1,39 @@
+nav{
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    /* left: 0; */
+    width: 100%;    
+    padding: 2rem 2rem 3rem 2rem;
+}
+
+nav div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: #351245;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 10px #694F95; 
+}
+a.active svg {
+    filter: drop-shadow(0 0 6px #8F59CE);
+  }
+nav.active a{
+    font-size: 1.4rem;
+    margin-top: 2.4rem;
+}
+a.active{
+    color: var(--yellow);
+}
+.logo{
+    color: var(--purple);
+}
+.logo:hover{
+    color: var(--yellow);
+}
+@media only screen and (max-width: 800px) {
+    nav div p{
+        display: none;
+    }
+}

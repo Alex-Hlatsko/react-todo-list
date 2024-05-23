@@ -1,0 +1,28 @@
+.home{
+    color: #fff;
+}
+.profile_img{
+    width: 12rem;
+}
+.profile_img img{
+    width: 18rem;
+}
+.profile_content{
+    color: #fff;
+    width: 18rem;
+}
+@media only screen and (max-width: 800px) {
+    .home{
+        justify-content: center;
+    }
+    .profile_content{
+        margin-top: 2rem;
+        margin-left: 1rem;
+    }
+    .profile_content h1{
+        font-weight: bold;
+    }
+    .profile_content span{
+        font-weight: 400;
+    }
+}
