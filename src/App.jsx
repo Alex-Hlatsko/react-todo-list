@@ -13,6 +13,7 @@ import Tasks from './pages/Tasks/Tasks'
 import MyTasks from './pages/MyTasks/MyTasks'
 import AddTask from './pages/Addtask/AddTask'
 import Signout from './pages/Signout/Signout'
+import LoadingPage from './pages/Loading/LoadingPage'
 
 function App() {
   // Get User
@@ -30,6 +31,7 @@ function App() {
           <Route path="/mytasks" element={<MyTasks user={user}/>} />
           <Route path="/addtask" element={<AddTask user={user}/>} />
           <Route path="/signout" element={<Signout user={user}/>} />
+          <Route path="/loading" element={<LoadingPage/>} />
           <Route path="*" element={<Navigate to="/home"/>}/>
         </Route>
       </Routes>

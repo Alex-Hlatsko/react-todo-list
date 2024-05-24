@@ -1,39 +1,82 @@
-nav{
+nav {
     position: fixed;
     z-index: 100;
-    bottom: 0;
-    /* left: 0; */
-    width: 100%;    
-    padding: 2rem;
+    top: 0;
+    left: 0;
+    width: 20rem;
+    height: 100vh;
 }
 
-nav div{
+nav div {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    padding: 1rem 0;
+    padding: 6rem 0 1rem 0;
     background-color: #351245;
     border-radius: 0.6rem;
-    box-shadow: 0 0 10px #694F95; 
+    box-shadow: 0 0 10px #694F95;
+    height: 100vh;
+
 }
+
+nav div svg {
+    display: none;
+}
+
+nav div p {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
 a.active svg {
     filter: drop-shadow(0 0 6px #8F59CE);
-  }
-nav.active a{
+}
+
+nav.active a {
     font-size: 1.4rem;
     margin-top: 2.4rem;
 }
-a.active{
-    color: var(--yellow);
+nav a{
+    margin: 1rem 0;
 }
-.logo{
+nav a.active {
+    color: #8F59CE;
+}
+
+.logo {
     color: var(--purple);
 }
-.logo:hover{
+
+.logo:hover {
     color: var(--yellow);
 }
+
 @media only screen and (max-width: 800px) {
-    nav div p{
+    nav {
+        position: fixed;
+        z-index: 100;
+        bottom: 0;
+        top: unset;
+        /* left: 0; */
+        width: 100%;
+        padding: 2rem;
+        height: 8rem;
+    }
+    nav div {
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1rem 0;
+
+    }
+    nav div svg {
+        display: block;
+    }
+
+    nav div p {
         display: none;
+    }
+    nav a{
+        margin: 0;
     }
 }

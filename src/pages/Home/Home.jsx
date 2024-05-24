@@ -33,7 +33,7 @@ const Home = ({ user }) => {
         <h1 className="text-2xl mt-3">Rank: {userData?.finishedTasks < 5 ? <span className='text-blue-600'>Beginning</span> : userData?.finishedTasks >= 5 && userData?.finishedTasks < 10 ? <span className='text-orange-500'>Advanced</span> : userData?.finishedTasks >= 10 ? <span className='text-purple-700'>Master</span> : "Noob"}</h1>
         <h1 className="text-2xl mt-3">Finished Tasks: <span>{userData?.finishedTasks}</span></h1>
       </div>
-      <button className="custom_button mt-20" onClick={()=>auth.signOut()}>Log Out</button>
+      <button className="custom_button mt-10" onClick={()=>auth.signOut()}>Log Out</button>
     </>
   )
 }

@@ -9,6 +9,7 @@ import { collection, onSnapshot, query, deleteDoc, updateDoc, doc } from 'fireba
 import { BiTask } from 'react-icons/bi'
 import { BsTrash } from 'react-icons/bs'
 import { FaUserCog } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const Task = ({ task, user }) => {
 
@@ -77,10 +78,10 @@ const Task = ({ task, user }) => {
 
 
       <div className="flex items-center">
-        {task?.taskId === user?.uid ? '' : <div className="w-8 h-8 cursor-pointer start mr-4" ><BiTask className='task_icon' size={38} onClick={() => startTask(task?.id)}></BiTask></div>}
+        {task?.taskId === user?.uid ? '' : <div className="w-8 h-8 cursor-pointer start mr-4" ><Link to="/loading"><BiTask className='task_icon' size={38} onClick={() => startTask(task?.id)}></BiTask></Link></div>}
 
-        {task?.startedBy !== '' && task?.isStarted === false ? <div className="w-8 h-8 mr-3" ><FaUserCog size={26} color="white"></FaUserCog></div> : ''}
-        {task?.isStarted === true && task?.startedBy !== '' ? <div className="w-8 h-8 cursor-pointer mr-3" ><FaUserCog className='text-green-400' size={32} onClick={() => finishTask(task?.startedBy, task?.id)}></FaUserCog></div> : ''}
+        {task?.startedBy !== '' && task?.isStarted === false ? <div className="w-8 h-8 mr-3" ><Link to="/loading"><FaUserCog size={26} color="white"></FaUserCog></Link></div> : ''}
+        {task?.isStarted === true && task?.startedBy !== '' ? <div className="w-8 h-8 cursor-pointer mr-3" ><Link to="/loading"><FaUserCog className='text-green-400' size={32} onClick={() => finishTask(task?.startedBy, task?.id)}></FaUserCog></Link></div> : ''}
 
 
 
@@ -94,7 +95,7 @@ const Task = ({ task, user }) => {
                 {/* <a className='hover:text-yellow-400' href={"mailto:z" + task?.email}><p className='task_mail text-white'>{task?.email}</p></a> */}
               </>}
           </div>
-          {task.taskId === user?.uid ? <div className="w-8 h-8 cursor-pointer"><BsTrash className='hover:text-rose-700 text-white' size={28} onClick={() => deleteTask(task?.id)}></BsTrash></div> : ''}
+          {task.taskId === user?.uid ? <div className="w-8 h-8 cursor-pointer"><Link to="/loading"><BsTrash className='hover:text-rose-700 text-white' size={28} onClick={() => deleteTask(task?.id)}></BsTrash></Link></div> : ''}
         </div>
       </div>
 
