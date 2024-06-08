@@ -50,7 +50,7 @@ const Welcome = () => {
         <div className="">
           <h1 className="text-6xl uppercase font-bold text-white">Sport <span className='liner'>Challenges</span></h1>
           {/* <p className="text-base text-gray-400 mt-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur id similique animi aliquam! Voluptatibus!</p> */}
-          <button className="text-center text-white custom_button mt-16" onClick={login}>Join</button>
+          <button className="text-center text-white custom_button mt-14" onClick={login}>Join</button>
         </div>
       </div>
       <div className='welcome_img'>

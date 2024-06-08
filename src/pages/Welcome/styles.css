@@ -1,6 +1,8 @@
 .welcome{
     justify-content: space-between;
     padding: 1rem;
+    max-width: 1400px;
+    margin: auto;
 }
 .welcome_content{
     width: 50%;
@@ -19,7 +21,13 @@
         width: 100%;
         text-align: center;
     }
+    .welcome_content h1{
+        font-size: 3rem;
+    }
     .welcome_img{
-        width: 70%;
+        width: 50%;
+    }
+    .welcome_img img{
+        margin: 0;
     }
 }

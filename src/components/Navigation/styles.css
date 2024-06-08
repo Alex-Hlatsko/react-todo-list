@@ -60,7 +60,7 @@ nav a.active {
         /* left: 0; */
         width: 100%;
         padding: 2rem;
-        height: 8rem;
+        height: 10rem;
     }
     nav div {
         height: auto;
@@ -78,5 +78,8 @@ nav a.active {
     }
     nav a{
         margin: 0;
+    }
+    div.profile_img img{
+        width: 8rem;
     }
 }
